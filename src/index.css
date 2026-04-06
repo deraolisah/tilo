@@ -28,7 +28,6 @@ html{
   scroll-behavior: smooth !important;
 }
 body{
-  /* min-height: 100vh; */
   background-color: #f7f6f4;
   letter-spacing: -0.2px;
   font-family: var(--font-body);
@@ -37,6 +36,8 @@ body{
 img{
   object-fit: cover;
 }
+
+
 
 @utility container {
   margin-inline: auto;

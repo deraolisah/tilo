@@ -6,7 +6,7 @@ const CategoriesSection = () => {
   return (
     <section className='container py-16'>
         <div className='flex items-center justify-between'>
-          <h2 className=''> Categories </h2>
+          <h2 className='text-4xl font-bold mb-2'> Categories </h2>
 
           <Link to="/shop" className='btn btn-alt'>
               Explore All

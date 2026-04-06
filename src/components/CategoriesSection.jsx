@@ -4,18 +4,25 @@ import ProductCard from './ProductCard';
 
 const CategoriesSection = () => {
   return (
-    <section className='container px-0! py-16'>
+    <section className='container py-16'>
         <div className='flex items-center justify-between'>
-            <h2 className=''> Categories </h2>
+          <h2 className=''> Categories </h2>
 
-            <Link to="/shop" className='btn btn-alt'>
-                Explore All
-            </Link>
+          <Link to="/shop" className='btn btn-alt'>
+              Explore All
+          </Link>
         </div>
 
-        <div>
-          <ProductCard />
-
+        <div className='w-full grid grid-cols-3 gap-4'>
+          <div>
+            Dresses
+          </div>
+          <div>
+            Accessories
+          </div>
+          <div>
+            Dresses
+          </div>
         </div>        
         
     </section>

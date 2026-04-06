@@ -9,7 +9,7 @@
 
 
 
-    --animate-fade-in-scale: fade-in-scale 3s ease-out;
+    --animate-fade-in-scale: fade-in-scale 3.2s ease-out;
     @keyframes fade-in-scale {
     0% {
       opacity: 0.5;
@@ -45,7 +45,7 @@ img{
 }
 @media screen and (min-width: 768px) {
   .container {
-    padding-inline: 20px;
+    padding-inline: 30px;
   }  
 }
 

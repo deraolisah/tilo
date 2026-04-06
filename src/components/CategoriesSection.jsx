@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ProductCard from './ProductCard';
 
 const CategoriesSection = () => {
   return (
@@ -13,6 +14,7 @@ const CategoriesSection = () => {
         </div>
 
         <div>
+          <ProductCard />
 
         </div>        
         

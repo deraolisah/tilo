@@ -9,7 +9,8 @@ const Navbar = () => {
   return (
     <>
       <nav className='container h-14 md:h-16 z-20 mt-4 md:mt-8 md:px-8! fixed top-0 left-1/2 -translate-x-1/2'>
-        <div className='h-full flex items-center justify-between gap-6 px-2.5 pr-6 md:px-8 shadow rounded-full border border-black/0 bg-white backdrop-blur-xs'>
+        <div className='h-full flex items-center justify-between gap-6 px-2.5 pr-6 md:px-8 shadow rounded-full border border-black/0 
+        bg-white backdrop-blur-xs'>
           <span className='flex items-center gap-2.5 flex-1'>
             <button type='button' onClick={() => {setMenuOpen(prev => !prev)}} className='flex md:hidden bg-gray-900 text-white rounded-full p-2.5 cursor-pointer'>
               {!menuOpen ? (

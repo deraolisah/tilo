@@ -12,7 +12,7 @@ const Hero = () => {
           backgroundPosition: "center",
         }}></div>
 
-        <h1 className='text-2xl md:text-5xl lg:text-7xl font-extrabold text-white'> Ready To Wear. </h1>
+        <h1 className='text-2xl md:text-5xl lg:text-7xl text-center font-extrabold text-white'> Ready To Wear <br/> Fashion Statements </h1>
 
         <Link to="/shop" className='btn'>
           Shop Now

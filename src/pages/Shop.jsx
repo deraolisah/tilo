@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Shop = () => {
+  const [activeCategory, setActiveCategory] = useState("All Products");
+
+  const categories = [
+    "All Products", "Accessories", "Bags", "Bubu Gown", "Two Piece", "Salwar Set", "Dresses"
+  ]
+
   return (
     <div className='container'>
       <h2 className='text-3xl font-semibold '> All Products </h2>
 
       <div className='flex items-center gap-x-2 gap-y-1 flex-wrap mt-4'>
-        <span className='bg-gray-900 text-white border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> All Products </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Accessories </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Bags </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Bubu Gown </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Two Piece </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Salwar Set </span>
-        <span className='border border-gray-900 rounded-full p-2 px-4 text-sm text-nowrap'> Dresses </span>
+        {categories.map((category) => (
+          <span key={category} className={`border border-gray-900 hover:border-gray-600 hover:text-gray-600 rounded-full p-2 px-4 text-xs md:text-sm text-nowrap cursor-pointer ${activeCategory === category ? "bg-gray-900 text-white hover:bg-gray-800 hover:text-white" : ""}`} onClick={() => {setActiveCategory(category)}} title={category}>
+            {category}
+          </span>
+        ))}
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar';
+import Chatbox from '../components/Chatbox.jsx';
 import Footer from "../components/Footer.jsx";
 import { Routes, Route} from 'react-router-dom';
 
@@ -22,6 +23,7 @@ const AppRoutes = () => {
           <Route path='/checkout' element={<Checkout />} />
         </Routes>
       </div>
+      <Chatbox />
       <Footer />
     </>
   )

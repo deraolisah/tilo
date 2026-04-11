@@ -39,7 +39,7 @@ const Navbar = () => {
               <li><Link to="/about" className='hover:text-gray-600'> About </Link></li>
               <li><Link to="/contact" className='hover:text-gray-600'> Contact </Link></li>
             </ul>
-            <button onClick={toggleSearchBar} type="button" className='cursor-pointer ml-2' title='Search'>
+            <button onClick={() => {toggleSearchBar(); setMenuOpen(false);}} type="button" className='cursor-pointer ml-2' title='Search'>
               <Search size={22} strokeWidth={1.2} />
             </button>
 

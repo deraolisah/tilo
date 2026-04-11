@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ChatIcon = ({ toggleMessage }) => (
   <div
-    className="fixed z-20 bottom-8 md:bottom-11 right-4 md:right-6 bg-white rounded-full p-2 pr-4 shadow border border-gray-200 cursor-pointer flex items-center gap-1 font-medium"
+    className="fixed z-20 bottom-8 right-4 md:right-6 bg-white rounded-full p-2 pr-4 shadow border border-gray-200 cursor-pointer flex items-center gap-1 font-medium"
     onClick={toggleMessage}
   >
     <MessageCircleMore size={28} strokeWidth={1.5} />
@@ -20,11 +20,11 @@ const Chatbox = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full p-4 md:p-6 md:pb-10 flex items-end justify-end">
+    <div className="">
       {!messageOpen ? (
         <ChatIcon toggleMessage={toggleMessage} />
       ) : (
-        <div className="">
+        <div className="fixed z-20 top-0 left-0 w-full h-full p-4 md:p-6 md:pb-8 flex items-end justify-end">
           <div className="bg-white w-full max-w-sm overflow-y-auto rounded-2xl p-4 z-50 relative">
             <button
               type="button"

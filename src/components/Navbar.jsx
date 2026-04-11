@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import Logo from "../assets/logo.png";
 import SearchBar from "./SearchBar.jsx";
@@ -12,7 +12,15 @@ const Navbar = () => {
   const toggleSearchBar = () => {
     setSearchOpen(!searchOpen);
     console.log("Search Button Was Clicked!");
-  }
+  };
+
+
+  const navList = [
+    {link: "Home", href: "/" },
+    {link: "Shop", href: "/shop" },
+    {link: "About", href: "/about" },
+    {link: "Contact", href: "/contact" },
+  ]
 
   return (
     <>
@@ -34,10 +42,11 @@ const Navbar = () => {
             </span>
 
             <ul className='hidden md:flex items-center gap-6 text-sm font-medium'>
-              <li><Link to="/" className='hover:text-gray-600'> Home </Link></li>
-              <li><Link to="/shop" className='hover:text-gray-600'> Shop </Link></li>
-              <li><Link to="/about" className='hover:text-gray-600'> About </Link></li>
-              <li><Link to="/contact" className='hover:text-gray-600'> Contact </Link></li>
+              {navList.map((item, index) => (
+                <li key={index}>
+                  <NavLink to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
+                </li>
+              ))}
             </ul>
             <button onClick={() => {toggleSearchBar(); setMenuOpen(false);}} type="button" className='cursor-pointer ml-2' title='Search'>
               <Search size={22} strokeWidth={1.2} />
@@ -56,10 +65,19 @@ const Navbar = () => {
 
         
         <ul className={`bg-white w-full flex md:hidden flex-col items-center gap-6 text-sm font-medium rounded-b-3xl -mt-7 p-6 pt-14 transition-all duration-500 overflow-hidden -z-1! relative ${menuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-10 pointer-events-none"}`}>
-          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/"> Home </Link></li>
+          {/* <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/"> Home </Link></li>
           <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/shop"> Shop </Link></li>
           <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/about"> About </Link></li>
-          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/contact"> Contact </Link></li>
+          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/contact"> Contact </Link></li> */}
+          {navList.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                onClick={() => {setMenuOpen(false); scrollTo(0,0); }} 
+                to={item.href}
+                end
+                className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
 

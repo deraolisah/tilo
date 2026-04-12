@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 import SearchBar from "./SearchBar.jsx";
 
 const Navbar = () => {
@@ -60,15 +60,11 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <SearchBar toggleSearchBar={toggleSearchBar} />
+          <SearchBar toggleSearchBar={toggleSearchBar} setSearchOpen={setSearchOpen} />
         )}
 
         
         <ul className={`bg-white w-full flex md:hidden flex-col items-center gap-6 text-sm font-medium rounded-b-3xl -mt-7 p-6 pt-14 transition-all duration-500 overflow-hidden -z-1! relative ${menuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-10 pointer-events-none"}`}>
-          {/* <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/"> Home </Link></li>
-          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/shop"> Shop </Link></li>
-          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/about"> About </Link></li>
-          <li><Link onClick={() => {setMenuOpen(false); scrollTo(0,0); }} to="/contact"> Contact </Link></li> */}
           {navList.map((item, index) => (
             <li key={index}>
               <NavLink

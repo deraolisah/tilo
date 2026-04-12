@@ -2,13 +2,13 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 
 
-const SearchBar = ({ toggleSearchBar }) => {
+const SearchBar = ({ toggleSearchBar, setSearchOpen }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
     console.log(`Search Term:  ${searchTerm}`);
-    setIsOpen(false);
+    setSearchOpen(false);
   }
 
   return (
@@ -18,7 +18,7 @@ const SearchBar = ({ toggleSearchBar }) => {
           type="text"
           value={searchTerm}
           onChange={(e) => { setSearchTerm(e.target.value)}}
-          className="bg-gray-200 rounded-l-full h-full w-full px-4 py-2 md:pl-10 focus:outline-none"
+          className="bg-gray-200 rounded-l-full h-full w-full px-4 py-2 pl-6 md:pl-10 focus:outline-none"
           placeholder="Search"
           />
         <button type="submit" className="bg-gray-900 text-white h-full px-4 pl-3 rounded-r-full flex items-center gap-2 text-sm md:text-base cursor-pointer">

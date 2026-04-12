@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import products from '../assets/data';
+import ProductCard from '../components/common/ProductCard';
 
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState("All Products");
@@ -16,6 +18,12 @@ const Shop = () => {
           <span key={index} className={`border border-gray-900 hover:border-gray-600 hover:text-gray-600 rounded-full p-2 px-4 text-xs md:text-sm text-nowrap cursor-pointer ${activeCategory === category ? "bg-gray-900 text-white hover:bg-gray-800 hover:text-white" : ""}`} onClick={() => {setActiveCategory(category)}} title={category}>
             {category}
           </span>
+        ))}
+      </div>
+
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 mt-6 md:mt-8'>
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} index={index} />
         ))}
       </div>
     </div>

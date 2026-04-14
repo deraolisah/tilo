@@ -21,7 +21,7 @@ const Shop = () => {
         ))}
       </div>
 
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 mt-6 md:mt-8'>
+      <div className='grid gris-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-4 py-6 md:py-8'>
         {products.map((product, index) => (
           <ProductCard key={index} product={product} index={index} />
         ))}

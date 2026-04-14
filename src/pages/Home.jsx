@@ -1,8 +1,8 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import AboutSection from '../components/AboutSection';
-import CategoriesSection from '../components/CategoriesSection';
-import FeaturedSection from '../components/FeaturedSection';
+import Hero from '../components/home/Hero';
+import AboutSection from '../components/home/AboutSection';
+import CategoriesSection from '../components/home/CategoriesSection';
+import FeaturedSection from '../components/home/FeaturedSection';
 
 const Home = () => {
   return (

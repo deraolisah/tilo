@@ -15,7 +15,7 @@ const AppRoutes = () => {
   return (
     <>
       <Navbar />
-      <div className='relative min-h-screen pt-22 md:pt-28'>
+      <div className='relative min-h-screen pt-24 md:pt-30'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />

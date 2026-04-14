@@ -17,19 +17,20 @@ const ProductDetails = () => {
 
   return (
     <section className='container'>
-        {/* breadcrumbs */}
-        <div className='flex items-center gap-2'>
-            <Link to={"/shop"}> Shop </Link>
-            <ChevronRight size={16} strokeWidth={1.5} />
-            <Link to={`/product/${id}`}> {product.name} </Link>
+      {/* breadcrumbs */}
+      <div className='flex items-center gap-2 text-sm'>
+        <Link to={"/"}> Home </Link>
+        <ChevronRight size={16} strokeWidth={1.5} />
+        <Link to={`/shop`}> {product.category} </Link>
+        <ChevronRight size={16} strokeWidth={1.5} />
+        <Link to={`/product/${id}`}> {product.name} </Link>
+      </div>
 
-        </div>
-        
-        <div>
-            <h2 className='text-xl font-bold'>{product.name}</h2>
-            <p>ID: {product.id}</p>
-            <img src={product.image} alt='' className='' />
-        </div>
+      <div className='mb-12'>
+          <h2 className='text-xl font-bold'>{product.name}</h2>
+          <p>ID: {product.id}</p>
+          <img src={product.image} alt='' className='rounded-lg' />
+      </div>
       {/* Add more product details here if needed */}
     </section>
   );

@@ -12,15 +12,22 @@ const CategoriesSection = () => {
           </Link>
         </div>
 
-        <div className='w-full grid grid-cols-3 gap-4'>
+        <div className='w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-4'>
           <div>
-            Dresses
+            <img src='https://picsum.photos/400/400?random=1' alt='category' className='w-full h-40 object-cover rounded-2xl' />
+            <span className='text-lg font-medium mt-2 block'> Dresses </span>
           </div>
           <div>
-            Accessories
+            <img src='https://picsum.photos/400/400?random=2' alt='category' className='w-full h-40 object-cover rounded-2xl' />
+            <span className='text-lg font-medium mt-2 block'> Accessories </span>
           </div>
           <div>
-            Dresses
+            <img src='https://picsum.photos/400/400?random=3' alt='category' className='w-full h-40 object-cover rounded-2xl' />
+            <span className='text-lg font-medium mt-2 block'> Bags </span>
+          </div>
+          <div>
+            <img src='https://picsum.photos/400/400?random=4' alt='category' className='w-full h-40 object-cover rounded-2xl' />
+            <span className='text-lg font-medium mt-2 block'> Two Piece </span>
           </div>
         </div>        
         

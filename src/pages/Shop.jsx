@@ -11,7 +11,7 @@ const Shop = () => {
 
   return (
     <div className='container'>
-      <h2 className='text-3xl font-semibold '> All Products </h2>
+      <h2 className='text-2xl md:text-4xl font-semibold '> All Products </h2>
 
       <div className='flex items-center gap-1.5 flex-wrap mt-4'>
         {categories.map((category, index) => (

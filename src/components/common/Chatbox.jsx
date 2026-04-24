@@ -37,15 +37,14 @@ const Chatbox = () => {
 
   return (
     <div className="">
-      {!messageOpen ? (
+      {!messageOpen && (
         <ChatIcon toggleMessage={toggleMessage} />
-      ) : (
-        <div className="fixed z-20 top-0 left-0 w-full h-full p-0 md:p-6 md:pb-8 flex items-end justify-end">
-          <div className="bg-white flex flex-col justify-between w-full h-full md:h-fit md:max-w-sm overflow-y-auto md:rounded-2xl pt-0 p-4 z-50 relative">
+      )}
+        <div className={`fixed z-40 top-0 left-0 w-full h-full p-0 md:p-6 md:pb-8 flex items-end justify-end transition-all duration-300 pointer-events-none ${messageOpen ? "translate-y-0" : "translate-y-full"}`}>
+          <div className="bg-white flex flex-col justify-between w-full h-full md:h-fit md:max-w-sm overflow-y-auto md:rounded-2xl pt-0 p-4 z-50 relative pointer-events-auto">
             {/* Header */}
             <div className="sticky top-0 md:relative flex items-center justify-between gap-4 bg-white border-b border-gray-200 py-4">
               <div className="w-10 h-10 rounded-full bg-gray-950 flex items-center justify-center">
-                {/* <MessageCircleMore size={20} className="text-white" /> */}
                 <img src={logo} alt="" className="w-6 h-6 invert-100" />
               </div>
               <h3 className="text-base md:text-lg font-bold flex-1"> Tilo Assistant </h3>
@@ -64,11 +63,11 @@ const Chatbox = () => {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex items-center gap-2.5 ${msg.from === "user" ? "justify-end" : ""}`}>
                   {msg.from === "bot" && (
-                    <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                      <MessageCircleMore size={16} className="text-white" />
+                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                      <MessageCircleMore size={14} className="text-black" />
                     </div>
                   )}
-                  <div className={`p-3 rounded-lg ${msg.from === "user" ? "mt-1.5 bg-blue-100" : "bg-gray-100"}`}>
+                  <div className={`p-3 py-2 rounded-lg ${msg.from === "user" ? "mt-1.5 bg-gray-900 text-white" : "bg-gray-200"}`}>
                     <p className="text-sm">{msg.text}</p>
                   </div>
                 </div>
@@ -86,9 +85,10 @@ const Chatbox = () => {
               <button type="submit" className="bg-gray-950 text-white px-4 rounded-lg">Send</button>
             </form>
           </div>
-          <div className="fixed w-full h-full bg-black/60 z-30 inset-0" onClick={toggleMessage} />
         </div>
-      )}
+        {messageOpen && (
+          <div className="fixed w-full h-full bg-black/60 z-30 inset-0 cursor-pointer" onClick={toggleMessage} />
+        )}
     </div>
   );
 };

@@ -23,13 +23,8 @@ const SearchBar = ({ toggleSearchBar, setSearchOpen }) => {
           />
         <button type="submit" className="bg-gray-900 text-white h-full px-4 pl-3 rounded-r-full flex items-center gap-2 text-sm md:text-base cursor-pointer">
           <Search size={18} className="-mt-px" />
-          Search
+          <span className="hidden md:inline-block"> Search </span>
         </button>
-      {/* </div> */}
-
-      {/* <button onClick={toggleSearchBar} className=" text-gray-600 cursor-pointer px-4 h-full rounded-r-full text-sm">
-        X
-      </button> */}
     </form>
   )
 }

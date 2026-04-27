@@ -6,6 +6,7 @@ const ChatIcon = ({ toggleMessage }) => (
   <div
     className="fixed z-20 bottom-8 right-4 md:right-6 bg-white rounded-full p-2 pr-4 shadow border border-gray-200 cursor-pointer flex items-center gap-1 font-medium"
     onClick={toggleMessage}
+    title="Chat With Tilo Assistant"
   >
     <MessageCircleMore size={28} strokeWidth={1.5} />
     <span> Chat </span>

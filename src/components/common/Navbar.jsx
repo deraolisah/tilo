@@ -67,7 +67,7 @@ const Navbar = () => {
             <ul className='hidden md:flex items-center justify-center gap-6 text-sm font-medium w-full'>
               {navList.map((item, index) => (
                 <li key={index}>
-                  <NavLink to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
+                  <NavLink onClick={() => { scrollTo(0,0); }} to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
                 </li>
               ))}
             </ul>
@@ -77,7 +77,7 @@ const Navbar = () => {
                 <Search size={22} strokeWidth={1.2} />
               </button>
 
-              <Link to="/checkout" className='cursor-pointer relative' onClick={() => { setMenuOpen(false) }} title='Cart'>
+              <Link to="/checkout" className='cursor-pointer relative' onClick={() => { setMenuOpen(false); scrollTo(0,0); }} title='Cart'>
                 <span className='absolute -top-2 -right-2 bg-gray-900 text-white min-w-4.5 h-4.5 p-1 flex items-center justify-center rounded-full text-xs'>
                   0
                 </span>

@@ -94,17 +94,22 @@ const Chatbox = () => {
           </div>
 
           {/* Body */}
-          <div className="mt-4 flex-1 md:flex-none h-full md:h-64 overflow-y-auto" aria-live="polite">
+          <div className="pt-2 flex-1 md:flex-none h-full md:h-64 overflow-y-auto" aria-live="polite">
             {messages.map((msg, i) => (
-              <div key={i} className={`flex items-center gap-2.5 ${msg.from === "user" ? "justify-end" : ""}`}>
+              <div key={i} className={`flex items-center gap-2 ${msg.from === "user" ? "justify-end" : ""}`}>
                 {msg.from === "bot" && (
                   <div className="min-w-8 min-h-8 rounded-full bg-gray-200 flex items-center justify-center">
                     <MessageCircleMore size={14} className="text-black" />
                   </div>
                 )}
-                <div className={`p-3 py-2 rounded-lg ${msg.from === "user" ? "my-1.5 bg-gray-900 text-white" : "bg-gray-200"}`}>
+                <div className={`p-3 py-2 rounded-lg ${msg.from === "user" ? "ml-10 my-1.5 bg-gray-900 text-white" : "mr-10 bg-gray-200"}`}>
                   <p className="text-sm">{msg.text}</p>
                 </div>
+                {msg.from === "user" && (
+                  <div className="min-w-8 min-h-8 rounded-full bg-gray-900 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">U</span>
+                  </div>
+                )}
               </div>
             ))}
             
@@ -117,7 +122,7 @@ const Chatbox = () => {
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(suggestion)}
-                      className="bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm px-3 py-1.5 rounded-full transition-colors duration-200 border border-gray-200"
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded-full transition-colors duration-200 border border-gray-200"
                     >
                       {suggestion}
                     </button>
@@ -129,12 +134,13 @@ const Chatbox = () => {
 
           <form onSubmit={handleSend} className="flex flex-col mt-2 gap-2">
             {messages.length > 2 && (
-              <div className="overflow-x-auto scrollbar-hidden flex gap-2">
+              <div className="overflow-x-auto scrollbar-hidden flex gap-2 relative">
+                <span className="absolute -top-2 z-2 bg-linear-to-r from-transparent to-red-500 w-10 right-0"></span>
                 {suggestions.map((suggestion, index) => (
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs text-nowrap px-3 py-1.5 rounded-full transition-colors duration-200 border border-gray-200"
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs text-nowrap px-2.5 py-1 rounded-full transition-colors duration-200 border border-gray-200"
                   >
                     {suggestion}
                   </button>

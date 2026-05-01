@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import Logo from "../../assets/logo.png";
 import SearchBar from "./SearchBar.jsx";
 
@@ -58,9 +58,8 @@ const Navbar = () => {
                   <X size={16} />
                 )}
               </button>
-              <Link to="/" className='font-bold text-xl flex gap-2 items-center'>  
+              <Link to="/" className='flex gap-2 items-center'>  
                 <img src={Logo} alt='' className='h-6 w-6 object-cover' /> 
-                {/* Tilo Store */}
               </Link>
             </span>
 
@@ -77,12 +76,16 @@ const Navbar = () => {
                 <Search size={22} strokeWidth={1.2} />
               </button>
 
-              <Link to="/checkout" className='cursor-pointer relative' onClick={() => { setMenuOpen(false); scrollTo(0,0); }} title='Cart'>
+              <button className='cursor-pointer relative' onClick={() => { setMenuOpen(false); scrollTo(0,0); }} title='Cart'>
                 <span className='absolute -top-2 -right-2 bg-gray-900 text-white min-w-4.5 h-4.5 p-1 flex items-center justify-center rounded-full text-xs'>
                   0
                 </span>
                 <ShoppingBag size={22} strokeWidth={1.2} />
-              </Link>
+              </button>
+
+              <button className='cursor-pointer' onClick={() => { setMenuOpen(false); scrollTo(0,0); }} title='Account'>
+                <User size={22} strokeWidth={1.2} />
+              </button>
             </div>
           </div>
         ) : (

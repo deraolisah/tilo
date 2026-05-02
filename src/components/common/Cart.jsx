@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react";
+import useCartStore from "../../store/useCartStore";
 
 const Cart = () => {
-  return (
-    <div className='container bg-white p-4'>
-      <h2 className='text-3xl font-semibold '> My CArt </h2>
-      <p>
-        Your Cart is Empty
-      </p>
+  const { items, clearCart } = useCartStore();
 
-      <button className='btn'>
-        Shop Now
+  return (
+    <div className="bg-white p-6 rounded shadow w-full">
+      <h2 className="text-3xl font-semibold">My Cart</h2>
+      {items.length === 0 ? (
+        <p>Your cart is empty</p>
+      ) : (
+        <ul>
+          {items.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      )}
+      <button className="btn" onClick={clearCart}>
+        Clear Cart
       </button>
     </div>
-  )
-}
+  );
+};
 
 export default Cart;

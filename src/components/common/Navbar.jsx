@@ -52,17 +52,24 @@ const Navbar = () => {
     <>
       <nav className='container h-14 md:h-16 z-20! mt-4 md:mt-8 fixed top-0 left-1/2 -translate-x-1/2'>
         {!searchOpen ? (
-          <div className={`h-full flex items-center justify-between gap-4 md:gap-6 px-2.5 md:pr-4! md:px-8 shadow rounded-full border border-black/0 bg-white backdrop-blur-sm z-4000! transition-all duration-500 `}>
+          <div className={`h-full flex items-center justify-between gap-4 md:gap-6 px-2.5 md:pr-4! md:px-8 rounded-full border border-black/0 bg-white backdrop-blur-sm z-4000! transition-all duration-500 `}>
             {/* ${sticky ? "transition-all duration-500 md:shadow-lg md:justify-center md:w-fit mx-auto" : ""} */}
             <span className='flex items-center justify-start gap-2.5 w-full'>
-              <button type='button' onClick={() => {setMenuOpen(prev => !prev)}} className='flex md:hidden bg-gray-900 text-white rounded-full p-2.5 cursor-pointer z-30'>
+              <button 
+                type='button' 
+                onClick={() => {
+                  setMenuOpen(prev => !prev);
+                  setCartOpen(false);
+                  setAccountOpen(false);
+                }} 
+                className='flex md:hidden bg-gray-900 text-white rounded-full p-2.5 cursor-pointer z-30'>
                 {!menuOpen ? (
                   <Menu size={16} />
                 ):(
                   <X size={16} />
                 )}
               </button>
-              <Link to="/" className='flex gap-2 items-center'>  
+              <Link to="/" onClick={() => { scrollTo(0,0); }} className='flex gap-2 items-center'>  
                 <img src={Logo} alt='' className='h-6 w-6 object-cover' /> 
               </Link>
             </span>
@@ -92,7 +99,7 @@ const Navbar = () => {
                 <button
                   className={`cursor-pointer relative p-1.5 rounded-full hover:bg-gray-100 ${cartOpen ? "bg-gray-100": "bg-transparent"}`}
                   onClick={() => {
-                    setCartOpen(true);
+                    setCartOpen(prev => !prev);
                     setAccountOpen(false); 
                     setMenuOpen(false);
                   }}
@@ -103,18 +110,16 @@ const Navbar = () => {
                   </span>
                   <ShoppingBag size={22} strokeWidth={1.2} />
                 </button>
-                {cartOpen && (
-                  <div className="fixed top-12 md:top-14 right-0 md:right-2 z-40 w-full md:max-w-115 p-4 md:px-0">
-                    <Cart />
-                  </div>
-                )}
+                <div className={`fixed top-0 md:top-18 right-0 md:right-2 -z-40 w-full md:max-w-115 p-4 md:px-0 pt-14 md:pt-0 transition-all duration-400 overflow-hidden rounded-3xl md:rounded bg-white md:bg-transparent ${cartOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+                  <Cart cartOpen={cartOpen} />
+                </div>
               </div>
 
               <div className='relative flex items-center'>
                 <button
                   className={`cursor-pointer p-1.5 rounded-full hover:bg-gray-100 ${accountOpen ? "bg-gray-100": "bg-transparent"}`}
                   onClick={() => {
-                    setAccountOpen(true);
+                    setAccountOpen(prev => !prev);
                     setCartOpen(false); 
                     setMenuOpen(false);
                   }}
@@ -122,24 +127,22 @@ const Navbar = () => {
                   >
                   <User size={22} strokeWidth={1.2} />
                 </button>
-                {accountOpen && (
-                  <div className="fixed top-12 md:top-14 right-0 md:right-2 z-40 w-full md:max-w-115 p-4 md:px-0">
-                    {useAuthStore.getState().user ? (
-                      <div className="bg-white p-4 rounded shadow">
-                        <h2 className="text-xl font-semibold">Welcome</h2>
-                        <p>{useAuthStore.getState().user.email}</p>
-                        <button
-                          className="btn bg-red-600 text-white"
-                          onClick={() => useAuthStore.getState().logout()}
-                        >
-                          Logout
-                        </button>
-                      </div>
-                    ) : (
-                      <Login />
-                    )}
-                  </div>
-                )}
+                <div className={`fixed top-0 md:top-18 right-0 md:right-2 -z-40 w-full md:max-w-115 p-4 md:px-0 pt-14 md:pt-0 transition-all duration-400 overflow-hidden rounded-3xl md:rounded bg-white md:bg-transparent ${accountOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+                  {useAuthStore.getState().user ? (
+                    <div className={`bg-white py-4 md:p-6 rounded w-full transition-all duration-600 overflow-hidden ${accountOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-10 pointer-events-none"}`}>
+                      <h2 className="text-xl font-semibold">Welcome</h2>
+                      <p>{useAuthStore.getState().user.email}</p>
+                      <button
+                        className="btn bg-red-600 text-white"
+                        onClick={() => useAuthStore.getState().logout()}
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  ) : (
+                    <Login accountOpen={accountOpen} />
+                  )}
+                </div>
               </div>
             </div>
           </div>

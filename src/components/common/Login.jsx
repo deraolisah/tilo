@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useAuthStore from "../../store/useAuthStore";
 
-const Login = () => {
+const Login = ({ accountOpen }) => {
   const login = useAuthStore((state) => state.login);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +15,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded shadow w-full">
+    <div className={`bg-white py-4 md:p-6 rounded w-full transition-all duration-600 overflow-hidden ${accountOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-10 pointer-events-none"}`}>
       <h2 className="text-xl font-semibold mb-4">Login</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input

@@ -97,7 +97,7 @@ const Navbar = () => {
 
               <div className='relative flex items-center'>
                 <button
-                  className={`cursor-pointer relative p-1.5 rounded-full hover:bg-gray-100 ${cartOpen ? "bg-gray-100": "bg-transparent"}`}
+                  className={`cursor-pointer relative p-1.5 rounded-full hover:bg-gray-200 ${cartOpen ? "bg-gray-200": "bg-transparent"}`}
                   onClick={() => {
                     setCartOpen(prev => !prev);
                     setAccountOpen(false); 
@@ -117,7 +117,7 @@ const Navbar = () => {
 
               <div className='relative flex items-center'>
                 <button
-                  className={`cursor-pointer p-1.5 rounded-full hover:bg-gray-100 ${accountOpen ? "bg-gray-100": "bg-transparent"}`}
+                  className={`cursor-pointer p-1.5 rounded-full hover:bg-gray-200 ${accountOpen ? "bg-gray-200": "bg-transparent"}`}
                   onClick={() => {
                     setAccountOpen(prev => !prev);
                     setCartOpen(false); 
@@ -168,9 +168,9 @@ const Navbar = () => {
 
       {menuOpen && (<div onClick={() => {setMenuOpen(false)}} className='fixed z-10 bg-black/60 inset-0 w-full h-full flex md:hidden'/>)}
 
-      {cartOpen && (<div onClick={() => setCartOpen(false)} className="fixed inset-0 bg-black/40 z-10" />)}
+      {cartOpen && (<div onClick={() => setCartOpen(false)} className="fixed z-10 bg-black/60 inset-0" />)}
 
-      {accountOpen && (<div onClick={() => setAccountOpen(false)} className="fixed inset-0 bg-black/40 z-10" />)}
+      {accountOpen && (<div onClick={() => setAccountOpen(false)} className="fixed z-10 bg-black/60 inset-0" />)}
     </> 
   )
 }

@@ -14,7 +14,6 @@ const Hero = () => {
           backgroundPosition: "center",
         }}></div>
 
-
         <span className='flex mt-4 opacity-0 text-white'>.</span>
 
         <h1 className='text-3xl md:text-5xl lg:text-7xl text-center font-extrabold text-white'> Ready To Wear <br/> Fashion Statements </h1>

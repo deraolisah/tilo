@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 
 
+
 const SearchBar = ({ toggleSearchBar, setSearchOpen }) => {
   const [searchTerm, setSearchTerm] = useState("");
 

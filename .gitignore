@@ -17,6 +17,11 @@ dist/
 node_modules
 scripts
 
+
+node_modules/
+scripts/
+
+
 dist
 dist-ssr
 *.local

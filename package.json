@@ -1,0 +1,15 @@
+{
+  "name": "tilo",
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "server": "cd server && npm run server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deraolisah/tilo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deraolisah/tilo/issues"
+  }
+}

@@ -108,13 +108,13 @@ const ProductDetails = () => {
             {product.category}
           </Link>
           <ChevronRight size={14} strokeWidth={1.5} />
-          <span className="text-ink truncate max-w-[180px]">{product.name}</span>
+          <span className="text-ink truncate max-w-45">{product.name}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* GALLERY */}
           <div className="space-y-4">
-            <div className="relative overflow-hidden rounded-2xl bg-sand aspect-[4/5]">
+            <div className="relative overflow-hidden rounded-2xl bg-sand aspect-4/5">
               <img
                 src={product.images[activeImage]}
                 alt={product.name}
@@ -145,7 +145,7 @@ const ProductDetails = () => {
                     key={i}
                     onClick={() => setActiveImage(i)}
                     className={cn(
-                      "w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 border-2 transition",
+                      "w-20 h-24 rounded-xl overflow-hidden shrink-0 border-2 transition",
                       activeImage === i
                         ? "border-ink"
                         : "border-transparent hover:border-sand"
@@ -262,7 +262,7 @@ const ProductDetails = () => {
                       onClick={() => s.inStock && setSelectedSize(s.label)}
                       disabled={!s.inStock}
                       className={cn(
-                        "min-w-[48px] px-4 py-2 rounded-full border text-sm transition",
+                        "min-w-12 px-4 py-2 rounded-full border text-sm transition",
                         selectedSize === s.label
                           ? "bg-ink text-bone border-ink"
                           : "bg-white border-sand hover:border-ink",

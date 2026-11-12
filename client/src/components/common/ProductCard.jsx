@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`} className="group block">
       {/* Image */}
-      <div className="relative overflow-hidden rounded-2xl bg-sand aspect-[4/5]">
+      <div className="relative overflow-hidden rounded-2xl bg-sand aspect-4/5">
         <img
           src={product.image}
           alt={product.name}

@@ -102,7 +102,7 @@ const Shop = () => {
 
           <div className="flex items-center gap-2 flex-wrap">
             {/* Search */}
-            <div className="relative flex-1 md:w-64 min-w-[180px]">
+            <div className="relative flex-1 md:w-64 min-w-45">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink/40" />
               <input
                 type="text"

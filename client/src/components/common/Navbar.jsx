@@ -56,7 +56,7 @@ const Navbar = () => {
             {/* ${sticky ? "transition-all duration-500 md:shadow-lg md:justify-center md:w-fit mx-auto" : ""} */}
             
 
-            <ul className='hidden md:flex items-center justify-start gap-6 text-sm font-medium w-full'>
+            <ul className='hidden md:flex items-center justify-start gap-6.5 text-sm font-medium w-full'>
               {navList.map((item, index) => (
                 <li key={index}>
                   <NavLink onClick={() => { scrollTo(0,0); }} to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
@@ -85,7 +85,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className='flex items-center justify-end gap-1.5 md:gap-2 w-full'>
+            <div className='flex items-center justify-end gap-1.25 w-full'>
               <button
                onClick={() => {
                 toggleSearchBar(); 
@@ -94,13 +94,13 @@ const Navbar = () => {
                 setAccountOpen(false);
                 }} 
                 type="button" 
-                className='cursor-pointer ml-2 p-1 rounded-full hover:bg-gray-100' title='Search'>
+                className='cursor-pointer ml-2 p-2 rounded-full hover:bg-gray-100' title='Search'>
                 <Search size={22} strokeWidth={1.2} />
               </button>
 
               <div className='relative flex items-center'>
                 <button
-                  className={`cursor-pointer relative p-1.5 rounded-full hover:bg-gray-200 ${cartOpen ? "bg-gray-200": "bg-transparent"}`}
+                  className={`cursor-pointer relative p-2 rounded-full hover:bg-gray-200 ${cartOpen ? "bg-gray-200": "bg-transparent"}`}
                   onClick={() => {
                     setCartOpen(prev => !prev);
                     setAccountOpen(false); 
@@ -120,7 +120,7 @@ const Navbar = () => {
 
               <div className='relative flex items-center'>
                 <button
-                  className={`cursor-pointer p-1.5 rounded-full hover:bg-gray-200 ${accountOpen ? "bg-gray-200": "bg-transparent"}`}
+                  className={`cursor-pointer p-2 rounded-full hover:bg-gray-200 ${accountOpen ? "bg-gray-200": "bg-transparent"}`}
                   onClick={() => {
                     setAccountOpen(prev => !prev);
                     setCartOpen(false); 

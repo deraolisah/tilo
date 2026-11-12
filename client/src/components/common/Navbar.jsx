@@ -52,9 +52,19 @@ const Navbar = () => {
     <>
       <nav className='container h-14 md:h-16 z-20! mt-4 md:mt-8 fixed top-0 left-1/2 -translate-x-1/2'>
         {!searchOpen ? (
-          <div className={`h-full flex items-center justify-between gap-4 md:gap-6 px-2.5 md:pr-4! md:px-8 rounded-full border border-black/0 bg-white backdrop-blur-sm z-4000! transition-all duration-500 `}>
+          <div className={`w-full h-full flex items-center justify-between gap-4 md:gap-6 px-2.5 md:pr-4! md:px-8 rounded-full border border-black/0 bg-white backdrop-blur-sm z-4000! shadow-sm transition-all duration-500 `}>
             {/* ${sticky ? "transition-all duration-500 md:shadow-lg md:justify-center md:w-fit mx-auto" : ""} */}
-            <span className='flex items-center justify-start gap-2.5 w-full'>
+            
+
+            <ul className='hidden md:flex items-center justify-start gap-6 text-sm font-medium w-full'>
+              {navList.map((item, index) => (
+                <li key={index}>
+                  <NavLink onClick={() => { scrollTo(0,0); }} to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <div className='flex items-center justify-start md:justify-center gap-2 w-full'>
               <button 
                 type='button' 
                 onClick={() => {
@@ -69,20 +79,13 @@ const Navbar = () => {
                   <X size={16} />
                 )}
               </button>
-              <Link to="/" onClick={() => { scrollTo(0,0); }} className='flex gap-2 items-center'>  
-                <img src={Logo} alt='' className='h-6 w-6 object-cover' /> 
+              <Link to="/" onClick={() => { scrollTo(0,0); }} className='flex gap-2 items-center justify-center text-3xl font-bold'>  
+                <img src={Logo} alt='TILO' className='h-6 w-6 object-cover -mr-1.75' /> 
+                ILO
               </Link>
-            </span>
+            </div>
 
-            <ul className='hidden md:flex items-center justify-center gap-6 text-sm font-medium w-full'>
-              {navList.map((item, index) => (
-                <li key={index}>
-                  <NavLink onClick={() => { scrollTo(0,0); }} to={item.href} end className={({isActive}) =>  `hover:text-gray-600 ${isActive ? "text-red-500 underline hover:text-red-500" : ""}`}> {item.link} </NavLink>
-                </li>
-              ))}
-            </ul>
-
-            <div className='flex items-center justify-end gap-1 w-full'>
+            <div className='flex items-center justify-end gap-1.5 md:gap-2 w-full'>
               <button
                onClick={() => {
                 toggleSearchBar(); 
